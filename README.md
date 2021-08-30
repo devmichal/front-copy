@@ -2,7 +2,7 @@
 
 <a href="https://copycake.pl/" target="_blank">Look on copycake</a>
 
-<img src="icon.png" alt="drawing" width="300"/>
+<img src="src/assets/avatar/icon.png" alt="drawing" width="300"/>
 
 ## About this app
 
