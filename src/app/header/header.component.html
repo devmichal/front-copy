@@ -1,0 +1,22 @@
+<div class="task__data">
+
+  <div class="container__data">
+    <p>
+      <ng-content select="[head]"></ng-content>
+    </p>
+  </div>
+
+  <div class="hr__line"></div>
+
+  <div class="add__button">
+      <ng-content select="[add]"></ng-content>
+  </div>
+
+  <div *ngIf="isLoading">
+    <ng-content select="[content]"></ng-content>
+  </div>
+  <div *ngIf="!isLoading">
+    <app-normal-preloaders></app-normal-preloaders>
+  </div>
+
+</div>

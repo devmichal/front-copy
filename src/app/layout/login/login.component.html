@@ -1,0 +1,54 @@
+<h1>Copy.<span>CAKE</span></h1>
+<div class="login__windows">
+  <h5>Login</h5>
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginTo()" autocomplete="off">
+
+    <div class="form__login">
+      <i [ngClass]="{'active-icon': activeInput === 1}" class="icon-mail"></i>
+      <input [ngClass]="{'input__error': submitted && valid.username.errors}"
+             formControlName="username"
+             autocomplete="off"
+             type="text"
+             name="username"
+             (blur)="deActiveInput()"
+             (click)="changeActiveInput(1)"
+             placeholder="Email address">
+      <i *ngIf="submitted && valid.username.errors" class="icon-attention-circled"></i>
+    </div>
+
+    <div class="form__login">
+      <i [ngClass]="{'active-icon': activeInput === 2}" class="icon-lock"></i>
+      <input
+        [ngClass]="{'input__error': submitted && valid.password.errors}"
+        formControlName="password"
+        type="password"
+        (blur)="deActiveInput()"
+        (click)="changeActiveInput(2)"
+        name="password"
+        placeholder="Password">
+      <i *ngIf="submitted && valid.password.errors" class="icon-attention-circled"></i>
+    </div>
+
+    <button [disabled]="loading">
+      LOGIN
+    </button>
+
+    <app-error-form *ngIf="errorLogin">
+      <label error>Incorrect login or password! Tray again</label>
+    </app-error-form>
+
+    <div *ngIf="errorLogin" class="forgot_password">
+      <a routerLink="/reset/password">
+        Forgot password
+      </a>
+    </div><br>
+
+  </form>
+
+</div>
+
+<div class="text_alain">
+  <img height="80" src="assets/avatar/icon.png">
+</div>
+<app-preloaders *ngIf="loading"></app-preloaders>

@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+  <div class="save__line rightSide">
+
+    <button class="button"><i class="icon-money"></i> &nbsp; Save Wallet</button>
+  </div>
+
+  <app-input-text
+    [FormManager]="formGroup"
+    [nameInput]="'street'"
+    [label]="'Street'"
+  ></app-input-text>
+
+  <app-input-text
+    [FormManager]="formGroup"
+    [nameInput]="'city'"
+    [label]="'City'"
+  ></app-input-text>
+
+  <app-input-text
+    [FormManager]="formGroup"
+    [nameInput]="'zipCode'"
+    [label]="'Zip code'"
+  ></app-input-text>
+
+  <div class="save__line">
+    <h4>Banking account</h4>
+  </div>
+
+  <div class="hr__line"></div>
+
+  <app-input-text
+    [FormManager]="formGroup"
+    [nameInput]="'bankName'"
+    [label]="'Bank name'"
+  ></app-input-text>
+
+  <app-input-text
+    [FormManager]="formGroup"
+    [nameInput]="'bankNumber'"
+    [label]="'Bank number'"
+  ></app-input-text>
+
+  <app-input-text
+    [FormManager]="formGroup"
+    [nameInput]="'lastUpdate'"
+    [label]="'Last update'"
+  ></app-input-text>
+
+  <app-preloaders *ngIf="executing"></app-preloaders>
+
+</form>

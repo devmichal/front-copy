@@ -1,0 +1,18 @@
+<app-header [dataServer]="task">
+
+  <p head><i class="icon-th-large icon__head"></i>My tasks</p>
+
+  <span add>
+    <button (click)="openManagerAddTask()"><i class="icon-th-large"></i> &nbsp;Add Task</button>
+  </span>
+
+  <div content>
+    <app-task-table
+      (removeTask)="removeTask($event)"
+      (updatedTask)="openManagerUpdateTask($event)"
+      [task]="task"
+    ></app-task-table>
+  </div>
+
+</app-header>
+<app-add-task (newTask)="loadTaskServer()" #addTaskComponent></app-add-task>

@@ -1,0 +1,44 @@
+@import "../../../../../assets/color";
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+.width__actions{
+  width: 80px;
+}
+.mat-column-delete, .mat-column-update{
+  width: 3%;
+}
+.mat-column-deadLine{
+  width: 6%;
+}
+.mat-column-numberCountCharacter{
+  width: 4%;
+}
+.mat-column-status, .mat-column-createdAt, .mat-column-walletTask{
+  width: 7%
+}
+.mat-column-typeText{
+  width: 15%;
+}
+.mat-column-client{
+  width: 20%;
+}
+.created{
+  color: $blue;
+}
+.during{
+  color: $pink;
+}
+span{
+  font-size: 13px;
+}

@@ -1,0 +1,14 @@
+<form [formGroup]="FormManager">
+
+  <div class="form__login">
+    <label>{{label}}</label>
+    <input
+           [ngClass]="{'input__error': invalid}"
+           formControlName="{{nameInput}}"
+           autocomplete="off"
+           type="{{typeText}}"
+           placeholder="{{label}}">
+    <i *ngIf="invalid" class="icon-attention-circled"></i>
+  </div>
+
+</form>

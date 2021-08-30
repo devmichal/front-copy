@@ -1,0 +1,17 @@
+<app-header [dataServer]="typeText">
+
+  <p head><i class="icon-doc-text-inv icon__head"></i>Text type</p>
+
+  <span add>
+    <button (click)="addNewText()"><i class="icon-doc-text-inv"></i>&ensp;&nbsp; Add text</button>
+  </span>
+
+  <div content>
+    <app-text-table
+      [typeText]="typeText"
+      (openManager)="updateText($event)"
+    ></app-text-table>
+  </div>
+
+</app-header>
+<app-add-type-text (actionText)="loadTypeText()" #addTypeTextComponent></app-add-type-text>

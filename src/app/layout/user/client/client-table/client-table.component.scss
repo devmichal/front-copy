@@ -1,0 +1,32 @@
+@import "../../../../../assets/color";
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-column-delete, .mat-column-update{
+  width: 3%;
+}
+.mat-column-report, .mat-column-salary {
+  width: 8%;
+}
+.icon-download{
+  color: $blue;
+}
+.icon-download:hover{
+  color: $pink;
+  cursor: pointer;
+}
+span{
+  font-size: 13px;
+}
+.net{
+  color: $blue;
+}
+.gross{
+  color: $pink;
+}

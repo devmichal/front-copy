@@ -1,0 +1,13 @@
+<form [formGroup]="FormManager">
+
+  <div class="form__login">
+    <label>{{label}}</label>
+    <input
+          [ngClass]="{'input__error': invalid}"
+          formControlName="{{nameInput}}"
+          autocomplete="off"
+          type="date"
+          placeholder="{{label}}">
+  </div>
+
+</form>

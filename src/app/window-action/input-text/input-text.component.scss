@@ -1,0 +1,44 @@
+@import "../../../assets/color";
+@import "../../../assets/input";
+@import "../../../assets/validation";
+
+
+input{
+  padding-left: 150px;
+  color: $textColor!important;
+}
+input:focus-visible{
+  color: $blue!important;
+}
+::placeholder{
+  color: $placeholder;
+}
+form{
+  margin-top: 19px;
+  position: relative;
+  input{
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+  label{
+    position: absolute;
+    top: 6px;
+    left: 1px;
+    color: $placeholder;
+  }
+  font-size: 14px;
+}
+.active-icon{
+  color: $blue!important;
+}
+.icon-attention-circled{
+  position: absolute;
+  color: $error!important;
+  right: 0;
+  top: 6px;
+}
+.incorrect_validation{
+  color: #e3081e;
+  font-size: 13px;
+  text-align: left;
+}

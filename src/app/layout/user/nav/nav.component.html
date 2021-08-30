@@ -1,0 +1,48 @@
+<nav>
+  <div class="left__nav">
+
+    <div class="avatar_nav">
+      <a routerLinkActive="activeRoutAvatar" routerLink="/user/avatar">
+        <img class="size__avatar" src="assets/avatar/avatar.png">
+      </a>
+    </div>
+
+    <div class="username_nav">
+      Hello Queen !
+    </div>
+
+    <ul>
+      <li>
+        <a routerLinkActive="activeRout" routerLink="/user/tasks">
+          <i class="icon-th-large"></i>
+          <span>Tasks</span>
+        </a>
+      </li>
+      <li>
+        <a routerLinkActive="activeRout" routerLink="/user/client">
+          <i class="icon-users"></i>
+          <span>Client</span>
+        </a>
+      </li>
+      <li>
+        <a routerLinkActive="activeRout" routerLink="/user/text">
+          <i class="icon-doc-text-inv"></i>
+          <span>Text type</span>
+        </a>
+      </li>
+      <li>
+        <a routerLinkActive="activeRout" routerLink="/user/wallet">
+          <i class="icon-money"></i>
+          <span>User management</span>
+        </a>
+      </li>
+      <li (click)="logout()">
+        <a routerLink="#">
+          <i class="icon-logout"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

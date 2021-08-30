@@ -1,0 +1,32 @@
+<app-window-action (closeManager)="closeManager()" *ngIf="manager">
+
+  <div manager>
+
+    <form [formGroup]="formManager" (ngSubmit)="addText()">
+
+      <div class="save__line">
+        <h3>Text type</h3>
+
+        <button class="button"><i class="icon-doc-text-inv"></i> &nbsp; Save Text</button>
+      </div>
+
+      <div class="hr__line"></div>
+
+      <div class="form-input">
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'destination'"
+          [label]="'Text type'"
+          [invalid]="submitted && valid.destination.errors"
+        ></app-input-text>
+
+      </div>
+
+    </form>
+
+    <app-preloaders *ngIf="executing"></app-preloaders>
+
+  </div>
+
+</app-window-action>

@@ -1,0 +1,27 @@
+@import "../../../../assets/color";
+
+button {
+  width: 80px;
+  height: 35px;
+  display: block;
+  font-size: 14px;
+}
+
+.show__confirm{
+  animation: showConfirm 0.6s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes showConfirm {
+  0%   {
+    margin-top: 25%;
+    opacity: 0
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1
+  }
+}
+.error__message{
+  color: $error;
+  font-size: 12px;
+}

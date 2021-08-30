@@ -1,0 +1,15 @@
+<div class="show__task">
+  <div class="div__task">
+
+    <span (click)="closerManager()" class="close__card">
+      <i class="icon-cancel"></i>
+    </span>
+
+    <div class="manager">
+      <ng-content select="[manager]"></ng-content>
+    </div>
+
+  </div>
+</div>
+
+

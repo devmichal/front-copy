@@ -1,0 +1,20 @@
+<div class="show__confirm">
+  <form [formGroup]="formManager" (ngSubmit)="submit()">
+
+    <app-input-text
+      [FormManager]="formManager"
+      [nameInput]="'userToken'"
+      [label]="'Token'"
+      [typeText]="'password'"
+      [invalid]="submitted && valid.userToken.errors"
+    ></app-input-text><br><br>
+
+    <label class="error__message" *ngIf="errorMessage">{{errorMessage}}</label>
+
+    <button>
+      <i class="icon-lock"></i>&nbsp;Send
+    </button>
+
+    <app-preloaders *ngIf="load"></app-preloaders>
+  </form>
+</div>

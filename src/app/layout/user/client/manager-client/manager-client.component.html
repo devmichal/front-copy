@@ -1,0 +1,82 @@
+<app-window-action (closeManager)="closeAction()" *ngIf="manager">
+
+  <div manager>
+
+    <form [formGroup]="formManager" (ngSubmit)="submit()">
+
+      <div class="save__line">
+        <h3>Client</h3>
+
+        <button class="button"><i class="icon-users"></i> &nbsp; Save Client</button>
+      </div>
+
+      <div class="hr__line"></div>
+
+      <div class="form-input">
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'name'"
+          [label]="'Name'"
+          [invalid]="submitted && valid.name.errors"
+        ></app-input-text>
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'street'"
+          [label]="'Street'"
+          [invalid]="submitted && valid.street.errors"
+        ></app-input-text>
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'city'"
+          [label]="'City'"
+          [invalid]="submitted && valid.city.errors"
+        ></app-input-text>
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'zipCode'"
+          [label]="'Zip code'"
+          [invalid]="submitted && valid.zipCode.errors"
+        ></app-input-text>
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'taxNumber'"
+          [label]="'Tax number'"
+          [invalid]="submitted && valid.taxNumber.errors"
+        ></app-input-text>
+
+      </div>
+
+      <div class="save__line">
+        <h4>Salary</h4>
+      </div>
+
+      <div class="hr__line"></div>
+
+      <div class="form-input">
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'salary'"
+          [label]="'Salary'"
+          [invalid]="submitted && valid.salary.errors"
+        ></app-input-text><br>
+
+        <label class="container">Is gross?
+          <input formControlName="gross" type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+
+      </div>
+
+    </form>
+
+    <app-preloaders *ngIf="executing"></app-preloaders>
+
+  </div>
+
+</app-window-action>

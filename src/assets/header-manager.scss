@@ -1,0 +1,22 @@
+.button{
+  margin: 12px 30px -5px 0;
+  width: 131px;
+  height: 34px;
+}
+.save__line{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-input{
+  padding: 20px;
+  margin-top: -18px;
+}
+.hr__line{
+  background-color: $border-bottom;
+  height: 2px;
+  width: 100%;
+}

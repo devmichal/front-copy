@@ -1,0 +1,15 @@
+<form [formGroup]="formManager" (ngSubmit)="submit()">
+
+  <app-input-text
+    [FormManager]="formManager"
+    [nameInput]="'user'"
+    [label]="'You`r email'"
+    [invalid]="submitted && valid.user.errors"
+  ></app-input-text><br><br>
+
+  <button>
+    <i class="icon-paper-plane-empty"></i>&nbsp;Send
+  </button>
+
+  <app-preloaders *ngIf="load"></app-preloaders>
+</form>

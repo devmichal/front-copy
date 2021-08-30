@@ -1,0 +1,68 @@
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" autocomplete="off" placeholder="Search you`r data" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name of clients </th>
+      <td mat-cell *matCellDef="let row"> <span>{{row.name}}</span> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <td mat-cell *matCellDef="let row"> <span>{{row.city}}</span> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="street">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Street </th>
+      <td mat-cell *matCellDef="let row"> <span>{{row.street}}</span> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gross">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Is gross </th>
+      <td mat-cell *matCellDef="let row"> <span [ngClass]="{'gross': row.gross, 'net': !row.gross}">{{row.gross | typeGross}}</span> </td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="salary">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <i class="icon-money"></i> Salary </th>
+      <td mat-cell *matCellDef="let row"> <span>{{row.salary}} zł</span></td>
+    </ng-container>
+
+    <ng-container matColumnDef="report">
+      <th class="width__actions" mat-header-cell *matHeaderCellDef><i class="icon-file-pdf"></i>Report</th>
+      <td mat-cell *matCellDef="let row">
+        <i class="icon-download" (click)="reportPdf(row)"></i>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update" class="width__actions">
+      <th class="width__actions" mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let row">
+        <i class="icon-pencil" (click)="updateClient(row)"></i>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th class="width__actions" mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let row">
+        <i class="icon-trash" (click)="deleteItem(row)"></i>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

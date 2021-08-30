@@ -1,0 +1,27 @@
+
+<br>
+<div class="select__div">
+
+  <form [formGroup]="formManager">
+
+    <label>{{label}}</label>
+
+    <div class="select__div__format">
+
+      <mat-form-field class="width__select" appearance="fill">
+        <mat-label>Select {{inputName}}</mat-label>
+
+        <mat-select formControlName="{{inputName}}">
+
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let row of loops" [value]="row.id"> {{row[iterableName]}} </mat-option>
+
+        </mat-select><!-- [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}"-->
+
+      </mat-form-field>
+
+    </div>
+
+  </form>
+
+</div>

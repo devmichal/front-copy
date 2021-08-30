@@ -1,0 +1,13 @@
+<app-header [dataServer]="true">
+
+  <p head><i class="icon-money icon__head"></i>&nbsp; User</p>
+
+    <div content>
+
+      <app-form-wallet *ngIf="isLoaded" [wallet]="wallet"></app-form-wallet>
+
+      <app-normal-preloaders *ngIf="!isLoaded"></app-normal-preloaders>
+
+    </div>
+
+</app-header>

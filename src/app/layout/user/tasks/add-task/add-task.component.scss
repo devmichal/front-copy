@@ -1,0 +1,16 @@
+@import "../../../../../assets/color";
+@import "../../../../../assets/checkbox";
+@import "../../../../../assets/header-manager";
+
+.width__input{
+  width: 100%;
+  padding-left: 0;
+}
+button{
+  width: 90px;
+  height: 33px;
+  font-size: 15px;
+}
+.button__save{
+  display: flex;
+}

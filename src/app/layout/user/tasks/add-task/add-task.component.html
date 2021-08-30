@@ -1,0 +1,67 @@
+<app-window-action (closeManager)="closeAction()" *ngIf="manager">
+
+  <div manager>
+
+    <form [formGroup]="formManager" (ngSubmit)="submit()">
+
+      <div class="save__line">
+        <h3>Task</h3>
+
+        <button class="button"><i class="icon-th-large"></i> &nbsp; Save Task</button>
+      </div>
+
+      <div class="hr__line"></div>
+
+      <div *ngIf="taskTally" class="form-input">
+
+        <app-select-option
+          [formManager]="formManager"
+          [loops]="taskTally.getClient"
+          [label]="'Client'"
+          [selectedOption]="task.clientId"
+        ></app-select-option>
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'titleTask'"
+          [label]="'Title task'"
+          [invalid]="submitted && valid.titleTask.errors"
+        ></app-input-text>
+
+        <app-input-text
+          [FormManager]="formManager"
+          [nameInput]="'numberCountCharacter'"
+          [label]="'CIS'"
+          [invalid]="submitted && valid.numberCountCharacter.errors"
+        ></app-input-text>
+
+        <app-select-option
+          [formManager]="formManager"
+          [loops]="taskTally.getTypeText"
+          [label]="'Task type'"
+          [iterableName]="'destination'"
+          [inputName]="'typeText'"
+          [selectedOption]="task.typeTextId"
+        ></app-select-option>
+
+        <app-input-date
+          [FormManager]="formManager"
+          [nameInput]="'deadLineAt'"
+          [label]="'Deadline'"
+          [invalid]="submitted && valid.deadLineAt.errors"
+        ></app-input-date><br>
+
+        <label *ngIf="isEdited" class="container">Task is done?
+          <input formControlName="status" type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+
+      </div>
+
+    </form>
+
+    <app-preloaders *ngIf="executing || !taskTally"></app-preloaders>
+
+  </div>
+
+</app-window-action>

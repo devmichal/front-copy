@@ -1,0 +1,19 @@
+<app-header [dataServer]="clients">
+
+  <p head><i class="icon-users icon__head"></i>Clients</p>
+
+  <span add>
+    <button (click)="openManagerAddClient()"><i class="icon-users"></i> &ensp; Add client</button>
+  </span>
+
+  <div content>
+    <app-client-table
+      (remove)="removeClient($event)"
+      (update)="openManagerUpdateClient($event)"
+      (createPdf)="createPdf($event)"
+      [client]="clients"
+    ></app-client-table>
+  </div>
+
+</app-header>
+<app-manager-client (refreshData)="loadClientServer()" #managerClientComponent></app-manager-client>

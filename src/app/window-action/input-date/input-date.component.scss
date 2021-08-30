@@ -1,0 +1,28 @@
+@import "../../../assets/color";
+@import "../../../assets/input";
+
+input{
+  font-family: 'Roboto', sans-serif;
+  padding-left: 150px;
+  color: $textColor!important;
+}
+input:focus-visible{
+  color: $blue!important;
+}
+::placeholder{
+  color: $pink;
+}
+form{
+  margin-top: 19px;
+  position: relative;
+  input{
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+  label{
+    position: absolute;
+    top: 6px;
+    left: 1px;
+    color: $placeholder;
+  }
+}

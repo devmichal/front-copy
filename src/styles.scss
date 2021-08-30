@@ -1,0 +1,109 @@
+
+@use '~@angular/material' as mat;
+@include mat.core();
+$copyCake-primary: mat.define-palette(mat.$indigo-palette);
+$copyCake-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$copyCake-warn: mat.define-palette(mat.$red-palette);
+$copyCake-theme: mat.define-light-theme((
+  color: (
+    primary: $copyCake-primary,
+    accent: $copyCake-accent,
+    warn: $copyCake-warn,
+  )
+));
+@include mat.all-component-themes($copyCake-theme);
+@import "assets/fontello/css/fontello.css";
+@import "assets/color";
+
+body,html{
+  overflow-x: hidden;
+  background-color: $backgroundColor;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  margin: 0;
+  color: $textColor;
+}
+input{
+  border-bottom: 2px solid $border-bottom!important;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  background-color: white;
+  color: $textColor!important;
+  font-size: 14px;
+  line-height: 30px;
+  padding-left: 30px;
+}
+input:focus-visible{
+  color: $blue!important;
+  border-bottom: 2px solid $blue!important;
+  border-left: 1px solid white!important;
+  border-right: 1px solid white!important;
+  border-top: 1px solid white!important;
+  background-color: white!important;
+  outline-width: 0;
+}
+input::placeholder{
+  color: $placeholder;
+  font-size: 14px;
+  line-height: 30px;
+}
+.input__error{
+  border-bottom: 2px solid $error !important;
+}
+button{
+  background-color: $blue;
+  color: white;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid;
+  cursor: pointer;
+}
+button:hover{
+  background-color: $pink;
+}
+.mat-elevation-z8{
+  box-shadow: none;
+}
+.icon__head{
+  color: $pink;
+  margin-right: 10px;
+}
+tbody{
+  tr:hover{
+    background-color: $backgroundColor;
+  }
+}
+.icon-pencil, .icon-trash{
+  color: $blue;
+  font-size: 15px;
+}
+.icon-pencil:hover, .icon-trash:hover{
+  color: $pink;
+  cursor: pointer;
+}
+h3{
+  font-weight: 400;
+  line-height: 29.55px;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+.mat-form-field-underline{
+  visibility: hidden;
+}
+.mat-cell, .mat-footer-cell{
+  color: $textColor;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: white;
+  border-bottom: 2px solid $border-bottom;
+  color: $textColor;
+}
+.mat-option-text{
+  color: $textColor;
+}
+.mat-option-text:hover{
+  color: $pink;
+}
