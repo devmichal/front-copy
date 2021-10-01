@@ -3,6 +3,8 @@ import {ManagerClientComponent} from "./manager-client/manager-client.component"
 import {ClientsService} from "../../../_services/http/client/clients.service";
 import {Clients} from "../../../_model/client/clients";
 import {ClientCacheService} from "../../../_services/cache/client-cache/client-cache.service";
+import {MatDialog} from "@angular/material/dialog";
+import {CalendarTimeComponent} from "../../../calendary-time/calendar-time.component";
 
 @Component({
   selector: 'app-client',
@@ -17,7 +19,8 @@ export class ClientComponent implements OnInit {
 
   constructor(
     private clientService: ClientsService,
-    private clientCache:ClientCacheService
+    private clientCache:ClientCacheService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -47,16 +50,17 @@ export class ClientComponent implements OnInit {
   }
 
   createPdf(clients: Clients) {
-    const date = new Date();
-    const actualDate = date.getFullYear()+'-'+date.getMonth();
 
-    this.clientService.generateReports(clients.id).subscribe(data => {
+    const dialogRef = this.dialog.open(CalendarTimeComponent, {
+      data: {name: clients.name}
+    });
 
-      const downloadURL = window.URL.createObjectURL(data);
-      const link = document.createElement('a');
-      link.href = downloadURL;
-      link.download = 'raport-'+actualDate+'-'+clients.name+'.pdf';
-      link.click();
+    dialogRef.afterClosed().subscribe(result => {
+
+      const startDate  = result.start ? ClientComponent.aggregateDate(result.start) : null;
+      const finishDate = result.end ? ClientComponent.aggregateDate(result.end) : null;
+
+      this.generateReport(clients, startDate, finishDate);
     });
   }
 
@@ -66,4 +70,28 @@ export class ClientComponent implements OnInit {
       this.clientCache.createCache(value);
     });
   }
+
+   private static aggregateDate(date: Date): string {
+
+    let d = new Date(date);
+    let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+    let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
+    let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+
+    return `${ye}-${mo}-${da}`;
+  }
+
+  private generateReport(clients: Clients, startDate: any = null, finishDate: any = null) {
+
+    const actualDate = ClientComponent.aggregateDate(new Date());
+    this.clientService.generateReports(clients.id, startDate, finishDate).subscribe(data => {
+
+      const downloadURL = window.URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = downloadURL;
+      link.download = 'raport-'+actualDate+'-'+clients.name+'.pdf';
+      link.click();
+    });
+  }
+
 }

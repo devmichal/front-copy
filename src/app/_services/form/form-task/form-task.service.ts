@@ -14,7 +14,8 @@ export class FormTaskService {
   buildFormTask(task: Task) {
     return this.formBuilder.group({
       titleTask: [task.titleTask, Validators.required],
-      deadLineAt: [task.deadLine, Validators.required],
+      createdAt: [task.createdAt],
+      deadLineAt: [task.deadLine],
       client: [task.clientId, Validators.required],
       typeText: [task.typeTextId, Validators.required],
       numberCountCharacter: [task.numberCountCharacter, Validators.required],

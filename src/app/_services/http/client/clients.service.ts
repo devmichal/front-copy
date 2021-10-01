@@ -29,8 +29,8 @@ export class ClientsService {
     return this.http.delete(`${environment.api}/client/${idClient}`);
   }
 
-  generateReports(client: string) {
-    return this.http.get(`${environment.api}/pdf/report/${client}`,{
+  generateReports(client: string, startCreated = null, finishCreated = null) {
+    return this.http.get(`${environment.api}/pdf/report/${client}/${startCreated}/${finishCreated}`,{
       responseType: 'blob'
     })
   }

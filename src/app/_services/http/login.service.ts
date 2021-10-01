@@ -29,6 +29,9 @@ export class LoginService {
   afterLogin() {
     const token = localStorage.getItem('userToken');
     if (token) {
+      sessionStorage.removeItem('client-data');
+      sessionStorage.removeItem('task-data');
+      sessionStorage.removeItem('type-text-data')
       const decodeToken = decode(token);
       localStorage.setItem('userTokenData', JSON.stringify(decodeToken));
     }

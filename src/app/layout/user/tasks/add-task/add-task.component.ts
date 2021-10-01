@@ -62,10 +62,20 @@ export class AddTaskComponent extends InteractionField {
 
  private updateTask() {
 
+    this.formManager.value.status = this.statusTask();
     this.taskService.updateTask(this.formManager, this.task.id).subscribe(value => {
       this.closeAction();
       this.newTask.emit(true);
     });
+  }
+
+  private statusTask(): boolean {
+
+    if (this.formManager.value.status === 0) {
+
+      return false;
+    }
+    return this.formManager.value.status
   }
 
 }

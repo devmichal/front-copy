@@ -36,8 +36,7 @@ export class TaskTableComponent implements OnChanges, AfterViewInit {
 
   constructor(
     public dialog: MatDialog
-  ) {
-  }
+  ) { }
 
   ngAfterViewInit(): void {
     this.buildTable();

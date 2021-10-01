@@ -46,13 +46,20 @@
 
         <app-input-date
           [FormManager]="formManager"
+          [nameInput]="'createdAt'"
+          [label]="'CreatedAt'"
+          [invalid]="submitted && valid.createdAt.errors"
+        ></app-input-date><br>
+
+        <app-input-date
+          [FormManager]="formManager"
           [nameInput]="'deadLineAt'"
           [label]="'Deadline'"
           [invalid]="submitted && valid.deadLineAt.errors"
         ></app-input-date><br>
 
         <label *ngIf="isEdited" class="container">Task is done?
-          <input formControlName="status" type="checkbox">
+          <input formControlName="status" type="checkbox" value="1">
           <span class="checkmark"></span>
         </label>
 

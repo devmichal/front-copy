@@ -17,6 +17,7 @@ import {ErrorFormModule} from "../../../error-form/error-form.module";
 import {PreloadersModule} from "../../../preloaders/preloaders.module";
 import {NormalPreloadersModule} from "../../../normal-preloaders/normal-preloaders.module";
 import { TypeGrossPipe } from './pipe/type-gross.pipe';
+import {CalendarTimeModule} from "../../../calendary-time/calendar-time.module";
 
 
 
@@ -41,7 +42,8 @@ import { TypeGrossPipe } from './pipe/type-gross.pipe';
         ReactiveFormsModule,
         ErrorFormModule,
         PreloadersModule,
-        NormalPreloadersModule
+        NormalPreloadersModule,
+        CalendarTimeModule
     ]
 })
 export class ClientModule { }
